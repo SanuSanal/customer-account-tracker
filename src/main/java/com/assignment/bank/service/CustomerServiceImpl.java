@@ -59,11 +59,10 @@ public class CustomerServiceImpl implements CustomerService {
 			customers = customerRepository.findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase(searchKey,
 					searchKey);
 		}
-		System.out.println(customers);
 		return customers.stream()
 				.map(entity -> new CustomerDTO(entity.getId(), entity.getFirstName(), entity.getLastName(),
 						entity.getDob(), entity.getEmailId(), entity.getMobileNumber(), entity.getAddress(),
-						entity.getCreatedTime()))
+						entity.getCreatedTime(), entity.getAccountEntities()))
 				.collect(Collectors.toSet());
 	}
 

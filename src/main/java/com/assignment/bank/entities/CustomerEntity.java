@@ -1,5 +1,6 @@
 package com.assignment.bank.entities;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -20,7 +21,10 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "Customer")
-public class CustomerEntity {
+public class CustomerEntity implements Serializable {
+
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
 
 	/** The id. */
 	@Id
@@ -56,7 +60,7 @@ public class CustomerEntity {
 	private LocalDateTime createdTime;
 
 	/** The accounts. */
-	@OneToMany(mappedBy = "customerEntity", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "customerEntity", cascade = CascadeType.ALL)
 	private List<AccountEntity> accountEntities = new ArrayList<>();
 
 	/**
@@ -290,7 +294,7 @@ public class CustomerEntity {
 	public String toString() {
 		return "CustomerEntity [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", dob=" + dob
 				+ ", mobileNumber=" + mobileNumber + ", emailId=" + emailId + ", address=" + address + ", createdTime="
-				+ createdTime + ", accountEntities=" + accountEntities + "]";
+				+ createdTime + "]";
 	}
 
 }

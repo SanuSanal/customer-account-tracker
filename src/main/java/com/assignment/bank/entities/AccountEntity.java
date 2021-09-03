@@ -1,5 +1,6 @@
 package com.assignment.bank.entities;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -17,7 +18,10 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "Account")
-public class AccountEntity {
+public class AccountEntity implements Serializable {
+
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
 
 	/** The id. */
 	@Id
@@ -239,8 +243,7 @@ public class AccountEntity {
 	@Override
 	public String toString() {
 		return "AccountEntity [id=" + id + ", accountNumber=" + accountNumber + ", branch=" + branch + ", accountType="
-				+ accountType + ", balance=" + balance + ", createdTime=" + createdTime + ", customerEntity="
-				+ customerEntity + "]";
+				+ accountType + ", balance=" + balance + ", createdTime=" + createdTime + "]";
 	}
 
 }

@@ -28,6 +28,30 @@ public class AccountDTO {
 
 	/**
 	 * Instantiates a new account DTO.
+	 */
+	public AccountDTO() {
+	}
+
+	/**
+	 * Instantiates a new account DTO.
+	 *
+	 * @param accountNumber the account number
+	 * @param accountType   the account type
+	 * @param branch        the branch
+	 * @param balance       the balance
+	 * @param createdTime   the created time
+	 */
+	public AccountDTO(String accountNumber, String accountType, String branch, Double balance,
+			LocalDateTime createdTime) {
+		this.accountNumber = accountNumber;
+		this.accountType = accountType;
+		this.branch = branch;
+		this.balance = balance;
+		this.createdTime = createdTime;
+	}
+
+	/**
+	 * Instantiates a new account DTO.
 	 *
 	 * @param accountNumber the account number
 	 * @param accountType   the account type
